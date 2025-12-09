@@ -38,7 +38,7 @@ This repository contains **only the tokenizer core**, extracted and cleaned for 
 │   ├── json.hpp
 │   ├── marian_core.h               # Public API
 │   └── marian_core.cc              # C++ Marian tokenizer implementation
-└── third_party
+├── third_party
 |   └── sentencepiece               # git submodule (Google SentencePiece)
 ├── scripts
 │   └── build_sentencepiece.sh      # Builds SentencePiece into ./deps
