@@ -1,0 +1,4 @@
+build
+deps
+third_party/*
+!third_party/sentencepiece
