@@ -6,7 +6,7 @@ This repository contains **only the tokenizer core**, extracted and cleaned for 
 
 ---
 
-## ✨ Overview
+## Overview
 
 - Pure C++ implementation (no Python, no virtualenv).
 - Uses **SentencePiece (C++)** internally.
@@ -20,7 +20,7 @@ This repository contains **only the tokenizer core**, extracted and cleaned for 
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```bash
 .
@@ -39,7 +39,7 @@ This repository contains **only the tokenizer core**, extracted and cleaned for 
 │   ├── marian_core.h               # Public API
 │   └── marian_core.cc              # C++ Marian tokenizer implementation
 ├── third_party
-|   └── sentencepiece               # git submodule (Google SentencePiece)
+│   └── sentencepiece               # git submodule (Google SentencePiece)
 ├── scripts
 │   └── build_sentencepiece.sh      # Builds SentencePiece into ./deps
 ├── Makefile
@@ -48,7 +48,7 @@ This repository contains **only the tokenizer core**, extracted and cleaned for 
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Clone (with submodules)
 
@@ -59,7 +59,7 @@ cd marian-tokenizer-core
 
 ---
 
-## 🛠️ Build Instructions
+## Build Instructions
 
 ### Step 1 — Build SentencePiece
 
@@ -103,7 +103,7 @@ build/<OS_ARCH>/lib/static/
 
 ---
 
-## 🔗 Linking Marian Core From Other Projects
+## Linking Marian Core From Other Projects
 
 ### Using the shared library (`.so`, `.dylib`, `.dll`)
 
@@ -129,7 +129,7 @@ Recommended for embedded, mobile, or single‑binary deployment.
 
 ---
 
-## 📦 API Summary (C ABI)
+## API Summary (C ABI)
 
 All public functions are declared in:
 
