@@ -239,10 +239,13 @@ Full license text:
 
 ## Third-party Licenses
 
-This С++ project depends on **SentencePiece**, licensed under the Apache 2.0 License:
+This project relies on several third-party libraries, all using permissive
+licenses fully compatible with Apache 2.0:
 
 - **SentencePiece (C++ core)** — Apache License 2.0 (© Google)  
   [github.com/google/sentencepiece](https://github.com/google/sentencepiece)
+- **JSON for Modern C++** — MIT License (© Niels Lohmann)  
+  [github.com/nlohmann/json](https://github.com/nlohmann/json)
 
 This makes the entire project fully Apache-compatible and safe for commercial use.
 
