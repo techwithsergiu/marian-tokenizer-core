@@ -153,13 +153,28 @@ MARIAN_API void         marian_tok_free(marian_tok_t handle);
 ```
 
 - `model_dir` must contain: `config.json`, `vocab.json`, `source.spm`, `target.spm`.
+- `marian_tok_free` releases all resources associated with the tokenizer handle.
+- Calling `marian_tok_free(NULL)` is a no-op.
 
-### Model metadata
+### Configuration (config.json)
 
 ```c
-MARIAN_API long long marian_tok_get_pad_id(marian_tok_t handle);
-MARIAN_API long long marian_tok_get_model_max_length(marian_tok_t handle);
+MARIAN_API const char* marian_tok_get_config_json(marian_tok_t handle, size_t* out_len);
+MARIAN_API void        marian_tok_free_buffer(void* p);
 ```
+
+`marian_tok_get_config_json` returns the raw JSON bytes of `config.json`.
+
+- On success:
+  - returns a pointer to a newly allocated buffer containing the JSON bytes
+  - writes the buffer size to `*out_len`
+
+- On failure:
+  - returns `NULL`
+  - sets `*out_len` to `0` (if `out_len` is not `NULL`)
+
+- The returned buffer must be released by calling `marian_tok_free_buffer`.
+- The returned buffer is not guaranteed to be NUL-terminated; always use `out_len`.
 
 ### Encoding (single string)
 
