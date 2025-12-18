@@ -49,8 +49,8 @@ MARIAN_API const char* marian_tok_get_config_json(
 //
 // add_eos: 0 or 1
 // Returns:
-//   >= 0: number of ids written to out_ids
-//   < 0: error code
+//   greater than or equal to 0: number of ids written to out_ids
+//   less than 0: error code
 MARIAN_API int marian_tok_encode(
         marian_tok_t handle,
         const char* text,
@@ -66,8 +66,8 @@ MARIAN_API int marian_tok_encode(
 // out_seq_lens:size [batch_size], actual sequence length per row
 // add_eos:     0 or 1
 // Returns:
-//   >= 0: maximum sequence length across the batch
-//   < 0: error code
+//   greater than or equal to 0: maximum sequence length across the batch
+//   less than 0: error code
 MARIAN_API int marian_tok_encode_batch(
         marian_tok_t handle,
         const char** texts,
@@ -83,7 +83,7 @@ MARIAN_API int marian_tok_encode_batch(
 // out_mask: size [batch_size * max_len], row-major, values 0/1
 // Returns:
 //   0  on success
-//  <0 on error
+//   less than 0 on error
 MARIAN_API int marian_tok_build_attention_mask(
         const int* seq_lens,
         int batch_size,
@@ -94,8 +94,8 @@ MARIAN_API int marian_tok_build_attention_mask(
 //
 // skip_special: 0 or 1; if 1, special tokens are removed before decoding.
 // Returns:
-//   >= 0: length of the decoded string (without '\0')
-//   < 0: error code
+//   greater than or equal to 0: length of the decoded string (without '\0')
+//   less than 0: error code
 MARIAN_API int marian_tok_decode(
         marian_tok_t handle,
         const long long* ids,

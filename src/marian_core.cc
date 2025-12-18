@@ -18,14 +18,14 @@ using json = nlohmann::json;
 using sentencepiece::SentencePieceProcessor;
 
 struct MarianCoreConfig {
-    int vocab_size = 0;
-    int decoder_vocab_size = 0;
-    long long eos_id = 0;
-    long long bos_id = 0;
-    long long pad_id = 0;
-    long long decoder_start_id = 0;
-    int max_length = 512;
-    int model_max_length = 512;
+    int vocab_size;
+    int decoder_vocab_size;
+    long long eos_id;
+    long long bos_id;
+    long long pad_id;
+    long long decoder_start_id;
+    int max_length;
+    int model_max_length;
     std::vector<std::vector<long long>> bad_words_ids;
 };
 
@@ -39,7 +39,7 @@ struct MarianCore {
     std::unordered_map<std::string, long long> token2id;
     std::vector<std::string> id2token;
 
-    long long unk_id = 1;
+    long long unk_id;
     std::unordered_set<long long> special_ids;
 };
 
@@ -217,8 +217,8 @@ const char* marian_tok_get_config_json(marian_tok_t handle, size_t* out_len) {
 //
 // add_eos: 0 or 1
 // Returns:
-//   >= 0: number of ids written to out_ids
-//   < 0: error code
+//   greater than or equal to 0: number of ids written to out_ids
+//   less than 0: error code
 int marian_tok_encode(
         marian_tok_t handle,
         const char* text,
@@ -270,8 +270,8 @@ int marian_tok_encode(
 // out_seq_lens:size [batch_size], actual sequence length per row
 // add_eos:     0 or 1
 // Returns:
-//   >= 0: maximum sequence length across the batch
-//   < 0: error code
+//   greater than or equal to 0: maximum sequence length across the batch
+//   less than 0: error code
 int marian_tok_encode_batch(
         marian_tok_t handle,
         const char** texts,
@@ -350,7 +350,7 @@ int marian_tok_encode_batch(
 // out_mask: size [batch_size * max_len], row-major, values 0/1
 // Returns:
 //   0  on success
-//  <0 on error
+//   less than 0 on error
 int marian_tok_build_attention_mask(
         const int* seq_lens,
         int batch_size,
@@ -381,8 +381,8 @@ int marian_tok_build_attention_mask(
 //
 // skip_special: 0 or 1; if 1, special tokens are removed before decoding.
 // Returns:
-//   >= 0: length of the decoded string (without '\0')
-//   < 0: error code
+//   greater than or equal to 0: length of the decoded string (without '\0')
+//   less than 0: error code
 int marian_tok_decode(
         marian_tok_t handle,
         const long long* ids,

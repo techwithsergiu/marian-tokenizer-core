@@ -2,3 +2,8 @@ build
 deps
 third_party/*
 !third_party/sentencepiece
+!third_party/nlohmann
+
+deps-scan
+go-cpp-analyzer
+docs
